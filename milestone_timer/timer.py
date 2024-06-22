@@ -2,6 +2,8 @@
 
 from time import perf_counter
 
+import milestone_timer
+
 
 class MilestoneTimer:
     """Timer that prints the time since the previous milestone.
@@ -16,6 +18,9 @@ class MilestoneTimer:
     def __init__(self, first_milestone: str = "timer initialised"):
         self.milestones = {first_milestone: perf_counter()}
         self.last_milestone = first_milestone
+
+    def __str__(self):
+        return str(self.milestones)
 
     def add_milestone(self, name: str) -> str:
         """Add a new milestone and return a time string since the last one.
